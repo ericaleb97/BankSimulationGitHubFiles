@@ -12,7 +12,7 @@ namespace BankAccount2020
         public double Balance { get; set; }
         public double amount { get; set; }
 
-        public string PIN { get; set; }
+        public int PIN { get; set; }
 
         private DateTime accountDate1;
 
@@ -43,16 +43,16 @@ namespace BankAccount2020
         {
             Balance -= amount;
 
-            return amount;
+            return Balance;
         }
 
-        public double Deposit(double amount)
+        public double Deposit()
         {
             //accountDate = new DateTime();
             //accountDate = DateTime.Now;
 
             Balance += amount;
-            return amount;
+            return Balance;
         }
     }
 }

@@ -8,3 +8,13 @@ C:\Users\erica\OneDrive\Documents\C# Practice Apps\Bank Simulations\BankAccount2
 C:\Users\erica\OneDrive\Documents\C# Practice Apps\Bank Simulations\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.csproj.GenerateResource.cache
 C:\Users\erica\OneDrive\Documents\C# Practice Apps\Bank Simulations\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.exe
 C:\Users\erica\OneDrive\Documents\C# Practice Apps\Bank Simulations\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.pdb
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\bin\Debug\BankAccount2020.exe.config
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\bin\Debug\BankAccount2020.exe
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\bin\Debug\BankAccount2020.pdb
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.csprojAssemblyReference.cache
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.Form1.resources
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.Form2.resources
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.Properties.Resources.resources
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.csproj.GenerateResource.cache
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.exe
+C:\Users\erica\OneDrive\Documents\C# Practice Apps\BankSimulationGitHub\BankAccount2020\BankAccount2020\obj\Debug\BankAccount2020.pdb

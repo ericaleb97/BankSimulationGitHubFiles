@@ -19,8 +19,10 @@ namespace BankAccount2020
 
         private void enter_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2(userPIN.Text);
-            f2.Show(this);
+            var account = new BankAccount();
+            account.PIN = Convert.ToInt32(userPIN.Text);
+            var f2 = new Form2(account);
+            f2.Show();
         }
     }
 }

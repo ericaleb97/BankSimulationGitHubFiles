@@ -21,8 +21,10 @@ namespace BankAccount2020
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"insert into IRS_Taxes(Balance, Deposit, Salary, [Transaction Date]) " +
-                    $"values('{account.Balance}','{account.amount}','{account.accountDate}')";
+                    command.CommandText = $"insert into User(startingBalance) " +
+                    $"values('{account.Balance}')";
+                    command.CommandText = $"insert into Transaction(amount, transactionDate) " +
+                    $"values('{account.amount}', '{account.accountDate}')";
                     connection.Open();
                     count = command.ExecuteNonQuery();
                     MessageBox.Show("The record was entered into the database");
@@ -44,8 +46,10 @@ namespace BankAccount2020
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"insert into BankAccount (Balance, Withdraw, [Transaction Date]) " +
-                    $"values('{account.Balance}','{account.amount}','{account.accountDate}')";
+                    command.CommandText = $"insert into User(startingBalance) " +
+                    $"values('{account.Balance}')";
+                    command.CommandText = $"insert into Transaction(amount, transactionDate) " +
+                    $"values('{account.amount}', '{account.accountDate}')";
                     connection.Open();
                     count = command.ExecuteNonQuery();
                     MessageBox.Show("The record was entered into the database");
@@ -59,16 +63,14 @@ namespace BankAccount2020
             return count;
         }
 
-        public static BankAccount SelectSingleRecord(string PIN)
+        public static BankAccount SelectSingleRecord(BankAccount account)
         {
-            BankAccount account = new BankAccount();
-
             try
             {
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"select top 1 Balance from BankAccount where PIN = '{PIN}'";
+                    command.CommandText = $"select top 1 * from User where PIN = {account.PIN}";
                     connection.Open();
                     var reader = command.ExecuteReader();
 
@@ -103,7 +105,7 @@ namespace BankAccount2020
 
             try
             {
-                account.PIN = reader.GetInt32(reader.GetOrdinal("PIN")).ToString();
+                account.PIN = Int32.Parse(reader.GetOrdinal("PIN").ToString());
                 account.Balance = Double.Parse(reader.GetDouble(reader.GetOrdinal("Balance")).ToString());
             }
             catch (Exception ex)

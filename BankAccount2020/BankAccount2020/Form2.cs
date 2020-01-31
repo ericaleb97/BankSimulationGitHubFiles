@@ -12,32 +12,44 @@ namespace BankAccount2020
 {
     public partial class Form2 : Form
     {
-        public Form2(string _pin)
+        BankAccount _account;
+
+        public Form2(BankAccount account)
         {
             InitializeComponent();
-            var account = new BankAccount();
-            account.PIN = _pin;
+            _account = account;
         }
 
         private void deposit_Click(object sender, EventArgs e)
         {
-
+            var account = new BankAccount();
+            account.Balance = Convert.ToDouble(userBalance.Text);
+            account.amount = Convert.ToDouble(userAmount.Text);
+            userBalance.Text = account.Deposit().ToString();
+            BankAccountAdaptor.InsertSingleRecordDeposit(account);
         }
 
         private void withdraw_Click(object sender, EventArgs e)
         {
-
+            var account = new BankAccount();
+            account.Balance = Convert.ToDouble(userBalance.Text);
+            account.amount = Convert.ToDouble(userAmount.Text);
+            userBalance.Text = account.Withdraw().ToString();
+            BankAccountAdaptor.InsertSingleRecordWithdraw(account);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //string pin = _account.userPIN;
+            if (_account.PIN == 0)
+            {
+                MessageBox.Show("Please enter the user data before updating");
+            }
 
-            //Find out how to make the PIN value from form1 in the form2 constructor//
-            //accessable to the form2_Load method//
-
-            var account = BankAccountAdaptor.SelectSingleRecord(_pin);
-            userBalance.Text = account.Balance.ToString();
+            else
+            {
+                var account = new BankAccount();
+                BankAccountAdaptor.SelectSingleRecord(account);
+            }
         }
     }
 }
