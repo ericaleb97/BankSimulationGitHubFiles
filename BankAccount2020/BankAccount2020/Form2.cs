@@ -23,33 +23,37 @@ namespace BankAccount2020
         private void deposit_Click(object sender, EventArgs e)
         {
             var account = new BankAccount();
+
             account.Balance = Convert.ToDouble(userBalance.Text);
             account.amount = Convert.ToDouble(userAmount.Text);
             userBalance.Text = account.Deposit().ToString();
-            BankAccountAdaptor.InsertSingleRecordDeposit(account);
+            account.accountDate = DateTime.Parse(transactionDate.Text);
+
+            BankAccountAdaptor.UpdateRecordBalance(account);
         }
 
         private void withdraw_Click(object sender, EventArgs e)
         {
             var account = new BankAccount();
+
             account.Balance = Convert.ToDouble(userBalance.Text);
             account.amount = Convert.ToDouble(userAmount.Text);
             userBalance.Text = account.Withdraw().ToString();
-            BankAccountAdaptor.InsertSingleRecordWithdraw(account);
+            account.accountDate = DateTime.Parse(transactionDate.Text);
+
+            BankAccountAdaptor.UpdateRecordBalance(account);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (_account.PIN == 0)
-            {
-                MessageBox.Show("Please enter the user data before updating");
-            }
+            CurrentDateTime.Start();
+            BankAccountAdaptor.SelectSingleRecord(_account);
+            userBalance.Text = _account.Balance.ToString();
+        }
 
-            else
-            {
-                var account = new BankAccount();
-                BankAccountAdaptor.SelectSingleRecord(account);
-            }
+        private void CurrentDateTime_Tick(object sender, EventArgs e)
+        {
+            transactionDate.Text = DateTime.Now.ToString();
         }
     }
 }

@@ -21,11 +21,6 @@ namespace BankAccount2020
 
         }
 
-        public BankAccount(double Balance)
-        {
-            this.Balance = Balance;
-        }
-
         public DateTime accountDate
         {
             get
@@ -48,9 +43,6 @@ namespace BankAccount2020
 
         public double Deposit()
         {
-            //accountDate = new DateTime();
-            //accountDate = DateTime.Now;
-
             Balance += amount;
             return Balance;
         }

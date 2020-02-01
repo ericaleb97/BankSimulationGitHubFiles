@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.userBalance = new System.Windows.Forms.TextBox();
             this.userAmount = new System.Windows.Forms.TextBox();
             this.deposit = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.transactionDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.CurrentDateTime = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // userBalance
@@ -54,9 +56,10 @@
             // 
             // deposit
             // 
+            this.deposit.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.deposit.Location = new System.Drawing.Point(296, 226);
             this.deposit.Name = "deposit";
-            this.deposit.Size = new System.Drawing.Size(75, 23);
+            this.deposit.Size = new System.Drawing.Size(87, 23);
             this.deposit.TabIndex = 2;
             this.deposit.Text = "Deposit";
             this.deposit.UseVisualStyleBackColor = true;
@@ -64,9 +67,10 @@
             // 
             // withdraw
             // 
+            this.withdraw.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.withdraw.Location = new System.Drawing.Point(296, 279);
             this.withdraw.Name = "withdraw";
-            this.withdraw.Size = new System.Drawing.Size(75, 23);
+            this.withdraw.Size = new System.Drawing.Size(87, 23);
             this.withdraw.TabIndex = 3;
             this.withdraw.Text = "Withdraw";
             this.withdraw.UseVisualStyleBackColor = true;
@@ -94,7 +98,7 @@
             // 
             this.transactionDate.Location = new System.Drawing.Point(533, 123);
             this.transactionDate.Name = "transactionDate";
-            this.transactionDate.Size = new System.Drawing.Size(100, 22);
+            this.transactionDate.Size = new System.Drawing.Size(160, 22);
             this.transactionDate.TabIndex = 6;
             // 
             // label3
@@ -105,6 +109,10 @@
             this.label3.Size = new System.Drawing.Size(38, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Date";
+            // 
+            // CurrentDateTime
+            // 
+            this.CurrentDateTime.Tick += new System.EventHandler(this.CurrentDateTime_Tick);
             // 
             // Form2
             // 
@@ -137,5 +145,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox transactionDate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer CurrentDateTime;
     }
 }
