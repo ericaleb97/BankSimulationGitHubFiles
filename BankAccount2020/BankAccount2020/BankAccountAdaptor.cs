@@ -20,7 +20,7 @@ namespace BankAccount2020
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"Update User set startingBalance = {account.Balance}";
+                    command.CommandText = $"Update [User] set startingBalance = {account.Balance}";
                     connection.Open();
                     int rows = command.ExecuteNonQuery();
 
@@ -80,8 +80,7 @@ namespace BankAccount2020
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"select top 1 * from User where PIN = {account.PIN}";
-                    //command.CommandText = $"select startingBalance from User where PIN = {account.PIN}";
+                    command.CommandText = $"select top 1 * from [User] where PIN = {account.PIN}";
                     connection.Open();
                     var reader = command.ExecuteReader();
 
@@ -117,7 +116,7 @@ namespace BankAccount2020
             try
             {
                 account.PIN = Int32.Parse(reader.GetOrdinal("PIN").ToString());
-                account.Balance = Double.Parse(reader.GetDouble(reader.GetOrdinal("Balance")).ToString());
+                account.Balance = Double.Parse(reader.GetDouble(reader.GetOrdinal("startingBalance")).ToString());
             }
             catch (Exception ex)
             {
