@@ -11,6 +11,7 @@ namespace BankAccount2020
     {
         public double Balance { get; set; }
         public double amount { get; set; }
+        public string userID { get; set; }
 
         public int PIN { get; set; }
 

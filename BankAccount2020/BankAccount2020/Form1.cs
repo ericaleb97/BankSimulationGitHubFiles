@@ -20,7 +20,7 @@ namespace BankAccount2020
         private void enter_Click(object sender, EventArgs e)
         {
             var account = new BankAccount();
-            account.PIN = Convert.ToInt32(userPIN.Text);
+            account.userID = userID.Text;
             var f2 = new Form2(account);
             f2.Show();
         }
