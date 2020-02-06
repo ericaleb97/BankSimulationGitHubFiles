@@ -58,7 +58,7 @@ namespace BankAccount2020
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"insert into [Transaction] (amount, transactionDate)" +
+                    command.CommandText = $"insert into [Transaction](amount, transactionDate)" +
                     $"values({account.amount}, {account.accountDate})";
                     connection.Open();
                     count = command.ExecuteNonQuery();
@@ -73,14 +73,16 @@ namespace BankAccount2020
             return count;
         }
 
-        public static BankAccount SelectSingleRecord(BankAccount account)
+        public static BankAccount SelectSingleRecord(string userID)
         {
+            var account = new BankAccount();
+
             try
             {
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"select top 1 * from [User] where userID = {account.userID}";
+                    command.CommandText = $"select top 1 * from [User] where userID = '{userID}'";
                     connection.Open();
                     var reader = command.ExecuteReader();
 

@@ -43,11 +43,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 178);
+            this.label1.Location = new System.Drawing.Point(285, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 17);
+            this.label1.Size = new System.Drawing.Size(21, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "PIN";
+            this.label1.Text = "ID";
             // 
             // enter
             // 

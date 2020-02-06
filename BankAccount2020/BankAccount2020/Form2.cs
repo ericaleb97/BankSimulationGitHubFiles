@@ -30,6 +30,7 @@ namespace BankAccount2020
             account.accountDate = DateTime.Parse(transactionDate.Text);
 
             BankAccountAdaptor.UpdateRecordBalance(account);
+            BankAccountAdaptor.InsertSingleRecord(account);
         }
 
         private void withdraw_Click(object sender, EventArgs e)
@@ -42,18 +43,18 @@ namespace BankAccount2020
             account.accountDate = DateTime.Parse(transactionDate.Text);
 
             BankAccountAdaptor.UpdateRecordBalance(account);
+            BankAccountAdaptor.InsertSingleRecord(account);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             CurrentDateTime.Start();
 
-            var account = BankAccountAdaptor.SelectSingleRecord(_account);
+
+            var account = BankAccountAdaptor.SelectSingleRecord(_account.userID);
             userBalance.Text = account.Balance.ToString();
 
-            //var account = new BankAccount();
-
-            //BankAccountAdaptor.SelectSingleRecord(_account);
+            //var account = BankAccountAdaptor.SelectSingleRecord(_account);
             //userBalance.Text = account.Balance.ToString();
         }
 
