@@ -24,8 +24,8 @@ namespace BankAccount2020
         {
             var account = new BankAccount();
 
-            account.Balance = Convert.ToDouble(userBalance.Text);
-            account.amount = Convert.ToDouble(userAmount.Text);
+            account.Balance = Convert.ToDecimal(userBalance.Text);
+            account.amount = Convert.ToDecimal(userAmount.Text);
             userBalance.Text = account.Deposit().ToString();
             account.accountDate = DateTime.Parse(transactionDate.Text);
 
@@ -37,8 +37,8 @@ namespace BankAccount2020
         {
             var account = new BankAccount();
 
-            account.Balance = Convert.ToDouble(userBalance.Text);
-            account.amount = Convert.ToDouble(userAmount.Text);
+            account.Balance = Convert.ToDecimal(userBalance.Text);
+            account.amount = Convert.ToDecimal(userAmount.Text);
             userBalance.Text = account.Withdraw().ToString();
             account.accountDate = DateTime.Parse(transactionDate.Text);
 
@@ -49,7 +49,6 @@ namespace BankAccount2020
         private void Form2_Load(object sender, EventArgs e)
         {
             CurrentDateTime.Start();
-
 
             var account = BankAccountAdaptor.SelectSingleRecord(_account.userID);
             userBalance.Text = account.Balance.ToString();

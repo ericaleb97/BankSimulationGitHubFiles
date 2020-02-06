@@ -82,7 +82,8 @@ namespace BankAccount2020
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"select top 1 * from [User] where userID = '{userID}'";
+                    //command.CommandText = $"select top 1 * from [User] where userID = '{userID}'";
+                    command.CommandText = $"select startingBalance from [User] where userID = '{userID}'";
                     connection.Open();
                     var reader = command.ExecuteReader();
 
@@ -118,8 +119,10 @@ namespace BankAccount2020
             try
             {
                 account.PIN = Int32.Parse(reader.GetOrdinal("PIN").ToString());
+                account.accountDate = DateTime.Parse(reader.GetDateTime(reader.GetOrdinal("transactionDate")).ToString());
+                account.amount = Decimal.Parse(reader.GetDecimal(reader.GetOrdinal("amount")).ToString());
                 account.userID = reader.GetString(reader.GetOrdinal("userID"));
-                account.Balance = Double.Parse(reader.GetDouble(reader.GetOrdinal("startingBalance")).ToString());
+                account.Balance = Decimal.Parse(reader.GetDecimal(reader.GetOrdinal("startingBalance")).ToString());
             }
             catch (Exception ex)
             {

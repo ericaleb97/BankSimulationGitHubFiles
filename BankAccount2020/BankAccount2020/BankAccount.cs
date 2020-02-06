@@ -9,8 +9,8 @@ namespace BankAccount2020
 {
     public class BankAccount
     {
-        public double Balance { get; set; }
-        public double amount { get; set; }
+        public decimal Balance { get; set; }
+        public decimal amount { get; set; }
         public string userID { get; set; }
 
         public int PIN { get; set; }
@@ -35,14 +35,13 @@ namespace BankAccount2020
             }
         }
 
-        public double Withdraw()
+        public decimal Withdraw()
         {
             Balance -= amount;
-
             return Balance;
         }
 
-        public double Deposit()
+        public decimal Deposit()
         {
             Balance += amount;
             return Balance;
