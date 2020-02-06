@@ -73,17 +73,14 @@ namespace BankAccount2020
             return count;
         }
 
-        public static BankAccount SelectSingleRecord(string userID)
+        public static BankAccount SelectSingleRecord(BankAccount account)
         {
-            var account = new BankAccount();
-
             try
             {
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    //command.CommandText = $"select top 1 * from [User] where userID = '{userID}'";
-                    command.CommandText = $"select startingBalance from [User] where userID = '{userID}'";
+                    command.CommandText = $"select top 1 * from [User] where PIN = {account.PIN}";
                     connection.Open();
                     var reader = command.ExecuteReader();
 

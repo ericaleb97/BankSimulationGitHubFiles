@@ -49,12 +49,8 @@ namespace BankAccount2020
         private void Form2_Load(object sender, EventArgs e)
         {
             CurrentDateTime.Start();
-
-            var account = BankAccountAdaptor.SelectSingleRecord(_account.userID);
-            userBalance.Text = account.Balance.ToString();
-
-            //var account = BankAccountAdaptor.SelectSingleRecord(_account);
-            //userBalance.Text = account.Balance.ToString();
+            _account = BankAccountAdaptor.SelectSingleRecord(_account);
+            userBalance.Text = _account.Balance.ToString();
         }
 
         private void CurrentDateTime_Tick(object sender, EventArgs e)
