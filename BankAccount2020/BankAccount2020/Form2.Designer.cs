@@ -136,8 +136,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox userBalance;
         private System.Windows.Forms.TextBox userAmount;
         private System.Windows.Forms.Button deposit;
         private System.Windows.Forms.Button withdraw;
@@ -146,5 +144,6 @@
         private System.Windows.Forms.TextBox transactionDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer CurrentDateTime;
+        public System.Windows.Forms.TextBox userBalance;
     }
 }

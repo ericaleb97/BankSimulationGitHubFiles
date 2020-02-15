@@ -8,31 +8,21 @@ namespace BankAccount2020
     {
         private static string sqlConn = "Data Source=DESKTOP-H72S0DN\\SQLINSTALL_1;Initial Catalog=BankAccount;Integrated Security=True";
 
-        /// <summary>
-        /// Updates the new balance amount into the User table
-        /// </summary>
-        /// <param name="BankAccount"></param>
-        /// <returns></returns>
-        public static bool UpdateRecordBalance(BankAccount account)
+        public static void ExecuteTransaction(Transaction transaction)
         {
             try
             {
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"Update [User] set startingBalance = {account.Balance}";
+                    command.CommandText = $"insert into [dbo].[Transaction]([userID],[amount],[transactionDate])" +
+                        $"values('{transaction.UserID}',{transaction.Amount},'{transaction.TransactionDateTime}')";
                     connection.Open();
                     int rows = command.ExecuteNonQuery();
 
-                    if (rows > 0)
-                    {
-                        MessageBox.Show("The record was updated");
-                        return true;
-                    }
-                    else
+                    if (rows < 1)
                     {
                         MessageBox.Show("The record was not updated");
-                        return false;
                     }
                 }
             }
@@ -41,73 +31,29 @@ namespace BankAccount2020
             {
                 //error logic for failed method
                 MessageBox.Show("The request did not go through");
-                return false;
+
             }
         }
 
-        /// <summary>
-        /// Inserts the transaction amount into the Transaction table
-        /// </summary>
-        /// <param name="BankAccount"></param>
-        /// <returns></returns>
-        public static int InsertSingleRecord(BankAccount account)
+        public static decimal GetCurrentBalance(BankAccount account)
         {
-            int count = 0;
+            decimal currentBalance = 0;
             try
             {
                 using (var connection = new SqlConnection(sqlConn))
                 {
                     var command = connection.CreateCommand();
-                    command.CommandText = $"insert into [Transaction](amount, transactionDate)" +
-                    $"values({account.amount}, {account.accountDate})";
+                    command.CommandText = $"select BankAccount.dbo.getCurrentBalanceTwo('{account.userID}')";
                     connection.Open();
-                    count = command.ExecuteNonQuery();
-                    MessageBox.Show("The record was entered into the database");
+                    currentBalance = (decimal)command.ExecuteScalar();
                 }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("The data was not entered into the database");
-            }
-
-            return count;
-        }
-
-        public static BankAccount SelectSingleRecord(BankAccount account)
-        {
-            try
-            {
-                using (var connection = new SqlConnection(sqlConn))
-                {
-                    var command = connection.CreateCommand();
-                    command.CommandText = $"select top 1 * from [User] where PIN = {account.PIN}";
-                    //command.CommandText = $"select startingBalance from [User] where PIN = {account.PIN}";
-                    connection.Open();
-                    var reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        try
-                        {
-                            account = GetFromReader(reader);
-                            MessageBox.Show("The record was found");
-                            //MessageBox.Show("The record was not found");
-                        }
-                        catch (Exception)
-                        {
-                            //error logic on failed db read
-                            MessageBox.Show("The record was not found");
-                        }
-                    }
-                }
-            }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //error logic for failed method
                 MessageBox.Show("The request did not go through");
             }
-
-            return account;
+            return currentBalance;
         }
 
         private static BankAccount GetFromReader(SqlDataReader reader)

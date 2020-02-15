@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userPIN = new System.Windows.Forms.TextBox();
+            this.PIN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.enter = new System.Windows.Forms.Button();
+            this.userID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // userPIN
+            // PIN
             // 
-            this.userPIN.Location = new System.Drawing.Point(312, 175);
-            this.userPIN.Name = "userPIN";
-            this.userPIN.Size = new System.Drawing.Size(100, 22);
-            this.userPIN.TabIndex = 0;
+            this.PIN.Location = new System.Drawing.Point(312, 175);
+            this.PIN.Name = "PIN";
+            this.PIN.Size = new System.Drawing.Size(100, 22);
+            this.PIN.TabIndex = 0;
             // 
             // label1
             // 
@@ -59,14 +61,32 @@
             this.enter.UseVisualStyleBackColor = true;
             this.enter.Click += new System.EventHandler(this.enter_Click);
             // 
+            // userID
+            // 
+            this.userID.Location = new System.Drawing.Point(312, 108);
+            this.userID.Name = "userID";
+            this.userID.Size = new System.Drawing.Size(100, 22);
+            this.userID.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(251, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "User ID";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.userID);
             this.Controls.Add(this.enter);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.userPIN);
+            this.Controls.Add(this.PIN);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -77,7 +97,9 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button enter;
-        public System.Windows.Forms.TextBox userPIN;
+        public System.Windows.Forms.TextBox PIN;
+        private System.Windows.Forms.TextBox userID;
+        private System.Windows.Forms.Label label2;
     }
 }
 
