@@ -35,34 +35,16 @@ namespace BankAccount2020
             }
         }
 
-        public void Deposit(Transaction transaction)
+        public void Action(Transaction transaction)
         {
-            this.Balance += transaction.Amount;
+            Balance += transaction.Amount;
             BankAccountAdaptor.ExecuteTransaction(transaction);
         }
 
-        public void Withdraw(Transaction transaction)
-        {
-            this.Balance -= transaction.Amount;
-            BankAccountAdaptor.ExecuteTransaction(transaction);
-        }
-
-        //public void UpdateAmount(Transaction transaction)
+        //public void Withdraw(Transaction transaction)
         //{
-        //    this.Balance += transaction.Amount;
-        //    BankAccountAdaptor.ExecuteTransaction(transaction, this);
-        //}
-
-        //public decimal Withdraw()
-        //{
-        //    Balance -= amount;
-        //    return Balance;
-        //}
-
-        //public decimal Deposit()
-        //{
-        //    Balance += amount;
-        //    return Balance;
+        //    Balance += transaction.Amount;
+        //    BankAccountAdaptor.ExecuteTransaction(transaction);
         //}
     }
 }

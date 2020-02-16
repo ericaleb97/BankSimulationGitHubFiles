@@ -23,7 +23,7 @@ namespace BankAccount2020
         private void deposit_Click(object sender, EventArgs e)
         {
             Transaction transaction = new Transaction(_account.userID, DateTime.Now, Convert.ToDecimal(userAmount.Text));
-            _account.Deposit(transaction);
+            _account.Action(transaction);
             userAmount.Text = "";
             userBalance.Text = _account.Balance.ToString();
         }
@@ -31,7 +31,8 @@ namespace BankAccount2020
         private void withdraw_Click(object sender, EventArgs e)
         {
             Transaction transaction = new Transaction(_account.userID, DateTime.Now, Convert.ToDecimal(userAmount.Text));
-            _account.Withdraw(transaction);
+            transaction.Amount *= -1;
+            _account.Action(transaction);
             userAmount.Text = "";
             userBalance.Text = _account.Balance.ToString();
         }

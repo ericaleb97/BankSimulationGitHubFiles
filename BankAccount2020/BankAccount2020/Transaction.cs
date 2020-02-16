@@ -34,6 +34,11 @@ namespace BankAccount2020
             {
                 return _amount;
             }
+
+            set
+            {
+                _amount = value;
+            }
         }
 
         public DateTime TransactionDateTime
