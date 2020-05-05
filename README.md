@@ -6,7 +6,7 @@ Their total amount of money will be affected in real time and the SQL database w
 
 ## Prerequisites
 
-# What you'll need to run the code:
+### What you'll need to run the code:
 
 *Internet connection
 
@@ -14,7 +14,7 @@ Their total amount of money will be affected in real time and the SQL database w
 
 *MS SQL Server 2012 v 11.0
 
-# Download the latest versions:
+### Download the latest versions:
 
 https://visualstudio.microsoft.com/downloads/
 
