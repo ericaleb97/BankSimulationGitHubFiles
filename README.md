@@ -17,6 +17,38 @@ Once logged in, we will see a text box that contains the user's current balance,
 
 We have two action buttons; deposit and withdraw. Whichever we select, the number inside of the balance text box will reflect the amount deposited or withdrawn in real time. The startingBalance will be updated (not the actual value in the User table, rather, the startingBalance as explained above) and the Transaction table will show the new transactionID, userID, amount that was entered, and the date of the transaction.
 
+## Deposit
+Eric has a total startingSalary value of $9,000. He deposits $400 into his account. The date is June 8th, 2020 and the time is 
+11:25 PM PST.
+
+His startingSalary is now $9,400 and will be reflected on the app window. 
+
+In the database, the following will be reflected:
+
+transactionID: 1,500 (Whichever transaction was made that day, let's say 1,500 for simplicity)
+
+userID: E73561
+
+amount: 400
+
+transactionDate: 2020-06-08 11:25:12
+
+## Withdraw
+Eric has a total startingSalary value of $9,000. He withdraws $400 from his account. The date is June 8th, 2020 and the time is 
+11:25 PM PST.
+
+His startingSalary is now $8,600 and will be reflected on the app window. 
+
+In the database, the following will be reflected:
+
+transactionID: 1,500 (Whichever transaction was made that day, let's say 1,500 for simplicity)
+
+userID: E73561
+
+amount: -400
+
+transactionDate: 2020-06-08 11:25:12
+
 ## Prerequisites
 
 ### What you'll need to run the code:
